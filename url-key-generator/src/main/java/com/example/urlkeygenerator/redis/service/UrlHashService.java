@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @Service
 public class UrlHashService {
@@ -30,9 +31,9 @@ public class UrlHashService {
     }
 
     public void save(final SegmentKeys segmentKeys) {
-        for (String hash : segmentKeys.getCreatedKeys()) {
-            hashOperations.put(URL_HASH_CACHE, hash, hash);
-        }
+        hashOperations.putAll(URL_HASH_CACHE, segmentKeys.getCreatedKeys()
+                .stream()
+                .collect(Collectors.toMap((s) -> s, (s) -> s)));
         saveLastSegment(segmentKeys.getEndingSegment());
     }
 

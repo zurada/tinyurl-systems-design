@@ -3,14 +3,10 @@ services:
   url-key-generator:
     image: url-key-generator
     ports:
-      - "8080:8080"
-    depends_on:
-      - redis
+      - "8083:8080"
     environment:
-    - REDIS_HOSTS="redis"
-  redis:
-    container_name: redis
-    hostname: redis
+    - REDIS_HOSTS=redisdb
+  redisdb:
     image: redis
     ports:
     - "6379:6379"
@@ -21,7 +17,7 @@ services:
     image: rediscommander/redis-commander:latest
     restart: always
     environment:
-    - REDIS_HOSTS=local:redis:6379
+    - REDIS_HOSTS=local:redisdb:6379
     ports:
     - "8081:8081"
 
