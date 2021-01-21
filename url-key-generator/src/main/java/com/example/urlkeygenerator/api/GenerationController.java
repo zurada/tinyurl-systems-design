@@ -1,24 +1,30 @@
 package com.example.urlkeygenerator.api;
 
-import com.example.urlkeygenerator.generator.KeyGenerator;
 import com.example.urlkeygenerator.model.Segment;
+import com.example.urlkeygenerator.service.GenerationService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.async.DeferredResult;
+
 
 @RestController
 public class GenerationController {
 
-    private final KeyGenerator keyGenerator;
+    private final GenerationService generationService;
 
-    public GenerationController(KeyGenerator keyGenerator) {
-        this.keyGenerator = keyGenerator;
+    public GenerationController(GenerationService generationService) {
+        this.generationService = generationService;
     }
+
 
     @PostMapping("/generate")
     @ResponseStatus(value = HttpStatus.ACCEPTED)
     public void generate(){
-        System.out.println(keyGenerator.generate(Segment.initialSegment()));
+        generationService.checkIsFree();
+        generationService.generate();
     }
+
 }

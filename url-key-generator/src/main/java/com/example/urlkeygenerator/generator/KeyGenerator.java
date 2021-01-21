@@ -16,6 +16,10 @@ public class KeyGenerator {
     }
 
     public SegmentKeys generate(Segment startSegment) {
+        if(startSegment == null) {
+            startSegment = Segment.initialSegment();
+        }
+
         String dictionary = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         SegmentKeys segmentKeys = new SegmentKeys();
         segmentKeys.setStartingSegment(startSegment);
