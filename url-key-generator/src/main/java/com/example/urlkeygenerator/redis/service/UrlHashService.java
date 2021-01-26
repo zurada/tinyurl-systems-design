@@ -5,35 +5,30 @@ import com.example.urlkeygenerator.model.Segment;
 import com.example.urlkeygenerator.model.SegmentKeys;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
-
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 @Service
 public class UrlHashService {
 
 
-    private final String URL_HASH_CACHE = "URLHASH";
-    private final String LAST_PERMUTATION_CACHE = "LASTPERMUTATION";
-    private final String GENERATION_STATE = "GENERATION_STATE";
+    private final String LAST_PERMUTATION_CACHE = "#LASTPERMUTATION";
+    private final String GENERATION_STATE = "#GENERATION_STATE";
     private final RedisTemplate<String, Object> redisTemplate;
-    private final HashOperations<String, String, String> hashOperations;
+    private final ValueOperations<String, Object> valueOperations;
     private final HashOperations<String, String, Segment> hashSegmentOperations;
     private final HashOperations<String, String, GenerationState> hashStateOperation;
 
     public UrlHashService(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
-        hashOperations = redisTemplate.opsForHash();
+        valueOperations = redisTemplate.opsForValue();
         hashSegmentOperations = redisTemplate.opsForHash();
         hashStateOperation = redisTemplate.opsForHash();
     }
 
     public void save(final SegmentKeys segmentKeys) {
-        hashOperations.putAll(URL_HASH_CACHE, segmentKeys.getCreatedKeys()
-                .stream()
-                .collect(Collectors.toMap((s) -> s, (s) -> s)));
+        segmentKeys.getCreatedKeys()
+                .forEach(s -> valueOperations.set(s, s));
         saveLastSegment(segmentKeys.getEndingSegment());
     }
 
