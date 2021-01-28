@@ -3,7 +3,7 @@ server {
   listen 80;
 
   location = / {
-    return 301 $scheme://$host:8080/url-generator;
+    return 301 $scheme://${NGINX_HOST}:${NGINX_PORT}/url-generator;
   }
   
   location ~* \.(jpg|jpeg|gif|png|bmp|ico|pdf|flv|swf|exe|html|htm|txt|css|js|svg)$ {

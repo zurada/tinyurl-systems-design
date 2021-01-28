@@ -42,7 +42,6 @@ export default class GenerateForm extends Component {
                     <Button type="submit" variant="contained" color="primary"> GENERATE</Button>
                 </form>
                 </div>
-
             );
         }else{
             return (
@@ -50,8 +49,13 @@ export default class GenerateForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <TextField  label="Your URL" type="text" value={this.state.value} onChange={this.handleChange} />
                     <Button type="submit" variant="contained" color="primary"> GENERATE</Button>
+                    <br/>
+                    <br/>
                 </form>
-                    {process.env.REACT_APP_REDIRECT_URL}{result}
+                    <br/>
+                    <br/>
+                    <p>Generated link:</p>
+                    <h2>{process.env.REACT_APP_REDIRECT_URL}{result}</h2>
                 </div>
 
             );
