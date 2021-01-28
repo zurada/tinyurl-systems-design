@@ -1,0 +1,32 @@
+server {
+
+  listen 80;
+
+  location = / {
+    return 301 $scheme://$host:8080/url-generator;
+  }
+  
+  location ~* \.(jpg|jpeg|gif|png|bmp|ico|pdf|flv|swf|exe|html|htm|txt|css|js|svg)$ {
+  	proxy_pass ${TINY_WEB_GEN_URL};
+  }
+  
+  location = /url-generator {
+    proxy_pass ${TINY_WEB_GEN_URL};
+  }
+
+  location = /create {
+    proxy_pass ${TINY_WEB_GEN_URL};
+  }
+
+ location / {
+    proxy_pass ${REDIRECT_API_URL};
+ }
+
+
+  error_page   500 502 503 504  /50x.html;
+
+  location = /50x.html {
+    root   /usr/share/nginx/html;
+  }
+
+}

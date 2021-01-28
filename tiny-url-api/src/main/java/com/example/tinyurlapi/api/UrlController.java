@@ -19,7 +19,7 @@ public class UrlController {
         this.mainPageUrl = mainPageUrl;
     }
 
-
+    @CrossOrigin(originPatterns = "*")
     @RequestMapping(value = "/redirect/{key}", method = RequestMethod.GET)
     public void redirect(HttpServletResponse httpServletResponse, @PathVariable String key) {
         httpServletResponse.setHeader("Location", urlToKeyService.getUrlByKey(key)
@@ -27,7 +27,7 @@ public class UrlController {
         httpServletResponse.setStatus(302);
     }
 
-
+    @CrossOrigin(originPatterns = "*")
     @PostMapping("/create")
     public UrlEntry createUrl(@RequestBody UrlEntryRequest urlEntry) {
         return urlToKeyService.createUrl(urlEntry);
