@@ -1,11 +1,12 @@
 # tinyurl-systems-design
 Excercise of tiny-url recreation with systems design princpiles and scaling
 
+## UI
+![Main web UI](/screenshot.png)
+
 ## Architecture
 ![Architecture](/architecture.png)
 
-## UI
-![Main web UI](/screenshot.png)
 
 ## Codebase
 I spent one evening to complete it, so it's just a POC without any unit tests, not guaranteed to be working perfectly.
