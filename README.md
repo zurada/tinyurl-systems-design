@@ -23,11 +23,11 @@ Written in:
 In [Grokking the System Design interview](https://www.educative.io/courses/grokking-the-system-design-interview) there are mentioned mutiple approaches for keys generation.
 I decided to come up with a bit more smart solution:
 - Generator pre-generates set of keys to use. 
+- When choosing a key for URL, then it is randomly polled from the set of currently available keys in O(1) time complexity.
 - There is a param that sets amount N of keys to generate in one row
 - The generation creates next N permutations starting from the last permutation generated previously.
 - The whole generation starts from just "a" and it generates all possible permutations
 - When all possible permutations are exhausted of a current length, then next keys are extended by 1 character. 
-- When choosing a key for URL, then it is randomly polled from the set of currently available keys
 - When too less keys are available (there is a param resposible for its min amount) then the next generation round starts to create N next keys.
 - When the URL expires (after 2 weeks) then it is returned back to the pool of keys, so it can be reused.
 - Dictionary of possible characters is "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" (63 characters)
