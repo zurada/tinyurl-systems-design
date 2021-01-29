@@ -11,6 +11,6 @@ Excercise of tiny-url recreation with systems design princpiles and scaling
 
 
 ## Swagger
-[Main api][https://petstore.swagger.io/?url=https://path/to/file.yaml]
-[Url Key Manager][https://petstore.swagger.io/?url=https://path/to/file.yaml]
-[Url Key Generator][https://petstore.swagger.io/?url=https://path/to/file.yaml]
+[Main api](https://editor.swagger.io/?raw=https://github.com/zurada/tinyurl-systems-design/blob/main/swagger/tiny-url-api.yaml)
+[Url Key Manager](https://editor.swagger.io/?raw=https://github.com/zurada/tinyurl-systems-design/blob/main/swagger/url-key-generator.yaml)
+[Url Key Generator](https://editor.swagger.io/?raw=https://github.com/zurada/tinyurl-systems-design/blob/main/swagger/url-key-manager.yaml)
