@@ -1,6 +1,17 @@
 # tinyurl-systems-design
 Excercise of tiny-url recreation with systems design princpiles and scaling
 
+## Codebase
+I spent one evening to complete it, so it's just a POC without any unit tests, not guaranteed to be working perfectly.
+The reason is just to try to prepare a small architecture that would enable me to play around scaling and deploying multiple load balancers, instances etc,
+especially for Azure.
+
+Written in:
+- Backend: Java 11: Spring Boot (required maven in order to build mvn clean install java applications)
+- Frontend: React.js.
+- DB: MongoDB + Redis
+- Deployed as Docker compose
+
 ## Docker compose:
  docker-compose up
 
