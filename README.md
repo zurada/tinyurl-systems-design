@@ -52,11 +52,7 @@ Somebody can access wrong URL if it was reused (after expiration) again for anot
 - Storage for 5 years 15TB
 - Memory for cache 170GB
 
-## Docker compose:
- docker-compose up
-
-
-## Swagger
+## API REST Endpoints
 
 ### Main Api:
 
@@ -67,6 +63,10 @@ Somebody can access wrong URL if it was reused (after expiration) again for anot
 
 ### Url Key Generator:
 [Url Key Generator](https://editor.swagger.io/?raw=https://github.com/zurada/tinyurl-systems-design/blob/main/swagger/url-key-manager.yaml)
+
+
+## Docker compose:
+ docker-compose up
 
 ### TODO (readme updates to come!):
 1. Try to use Kubernetes
