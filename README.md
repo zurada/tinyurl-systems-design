@@ -4,7 +4,7 @@ Excercise of tiny-url recreation with systems design princpiles and scaling
 ## UI
 ![Main web UI](/screenshot.png)
 
-## Architecture
+## Architecture (micro-services)
 ![Architecture](/architecture.png)
 
 
