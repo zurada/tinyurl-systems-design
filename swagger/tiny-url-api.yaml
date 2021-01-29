@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   description: Api Documentation
   version: '1.0'
-  title: Tiny Url API (Main API)
+  title: Main tiny-url API
   termsOfService: 'urn:tos'
   contact: {}
   license:
