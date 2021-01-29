@@ -5,10 +5,10 @@ Excercise of tiny-url recreation with systems design princpiles and scaling
  docker-compose up
 
 
-### Architecture
+## Architecture
 ![Architecture](/architecture.png)
 
-### UI
+## UI
 ![Main web UI](/screenshot.png)
 
 
