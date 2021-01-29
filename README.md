@@ -44,7 +44,7 @@ Assuming 4-week long month, 250 million new URLs per 2 weeks are required, the p
 ### Cons: 
 Somebody can access wrong URL if it was reused (after expiration) again for another url :)
 
-# High level estimates: 
+## High level estimates: 
 - New URLs 200/s
 - URL redirections 20K/s
 - Incoming data 100KB/s
@@ -52,11 +52,11 @@ Somebody can access wrong URL if it was reused (after expiration) again for anot
 - Storage for 5 years 15TB
 - Memory for cache 170GB
 
-# Docker compose:
+## Docker compose:
  docker-compose up
 
 
-# Swagger
+## Swagger
 
 ### Main Api:
 
