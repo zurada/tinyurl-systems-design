@@ -31,11 +31,17 @@ I decided to come up with a bit more smart solution:
 - When the URL expires (after 2 weeks) then it is returned back to the pool of keys, so it can be reused.
 - Dictionary of possible characters is "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" (63 characters)
 
+### Pros:
 Thanks to this logic, it is possible to create the shortest possible URL shortenings, in reality, depending on its usage, 1-6 characters.
 
 Assuming 500 million new URLs per month and 100:1 read:write ratio,
 For 1-5 characters there are 63 + 63^2 + 63^3 + 64^4 + 64^5 = 1.090.773.119 possibilities, the new generated keys are going to be enough for 2 months without expiration.
 But the keys are going to expire after 2 weeks and are possible to be reused again.
+
+Assuming 4-week long month, 250 million new URLs per 2 weeks are required, the pool of 1.090.773.119 should be sufficient.
+
+### Cons: 
+Somebody can access wrong URL if it was reused (after expiration) again for another url :)
 
 # High level estimates: 
 New URLs 200/s
@@ -47,7 +53,6 @@ Memory for cache 170GB
 
 # Docker compose:
  docker-compose up
-
 
 
 ## Swagger
