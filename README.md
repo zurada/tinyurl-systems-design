@@ -33,7 +33,7 @@ I decided to come up with a bit more smart solution:
 - Dictionary of possible characters is "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" (63 characters)
 
 ### Pros:
-Thanks to this logic, it is possible to create the shortest possible URL shortenings, in reality, depending on its usage, 1-6 characters.
+Thanks to this logic, it is possible to create the shortest possible URL shortenings, in reality, depending on its usage, 1-5 characters.
 
 Assuming 500 million new URLs per month and 100:1 read:write ratio,
 For 1-5 characters there are 63 + 63^2 + 63^3 + 64^4 + 64^5 = 1.090.773.119 possibilities, the new generated keys are going to be enough for 2 months without expiration.
